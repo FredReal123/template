@@ -1,26 +1,97 @@
 @echo off
-:: Loop 3 times
-for /L %%i in (1,1,3) do (
-    :: Reset wallpaper to default (no wallpaper)
-    reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "D:\a\super-potato\super-potato\wallpaper.jpg" /f
+:: Define the source and destination paths
+echo Enabling Dark Mode...
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "AppsUseLightTheme" /t REG_DWORD /d 0 /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "SystemUsesLightTheme" /t REG_DWORD /d 0 /f
+echo Dark Mode has been enabled.
 
-    :: Reset wallpaper for current user (this will be empty)
-    reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d "D:\a\super-potato\super-potato\wallpaper.jpg" /f
+echo Setting default wallpaper...
 
-    :: Set the dark mode for apps (turn on dark mode)
-    reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Theme" /v AppsUseLightTheme /t REG_SZ /d "0" /f
+:: Set the path to the wallpaper (update the path as needed)
+set wallpaperPath="D:\a\super-potato\super-potato\wallpaper.jpg"
 
-    :: Set the dark mode for current user (turn on dark mode)
-    reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v AppsUseLightTheme /t REG_SZ /d "0" /f
+:: Set the wallpaper registry keys
+reg add "HKCU\Control Panel\Desktop" /v "Wallpaper" /t REG_SZ /d %wallpaperPath% /f
+reg add "HKCU\Control Panel\Desktop" /v "WallpaperStyle" /t REG_SZ /d 2 /f
+reg add "HKCU\Control Panel\Desktop" /v "TileWallpaper" /t REG_SZ /d 0 /f
 
-    :: Set the dark mode for apps (turn on dark mode)
-    reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Theme" /v SystemUsesLightTheme /t REG_SZ /d "0" /f
+:: Refresh the wallpaper
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 
-    :: Set the dark mode for current user (turn on dark mode)
-    reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v SystemUsesLightTheme /t REG_SZ /d "0" /f
+echo Default wallpaper has been set.
 
-    :: Update the system parameters to apply the changes
-    RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters
-)
-RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters
-echo dark mode enabled
+echo Enabling file extensions visibility...
+
+:: Set the registry to show file extensions
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
+
+:: Refresh the explorer settings
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+
+echo File extensions are now visible.
+
+:: Refresh the settings
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
