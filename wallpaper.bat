@@ -30,7 +30,19 @@ RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 
 echo File extensions are now visible.
 
+@echo off
+set sysModel = "HP Laptop 17t-cn300"
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v Model /t REG_SZ /d %sysModel% /f
+echo System Model changed to %sysModel%
+
 :: Refresh the settings
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
